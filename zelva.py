@@ -17,10 +17,13 @@ t.goto(-300, 0)
 t.down()
 
 
-def n_uhelnik(n, krok):
+def n_uhelnik(n=5, krok=100):
+    if n < 1:
+        return
     for _ in range(n):
         t.forward(krok)
         t.left(360 / n)
+    return
 
 
 def sinus(amplituda, perioda):
@@ -32,15 +35,21 @@ def sinus(amplituda, perioda):
     for i in range(deleni):
         t.goto(pocatekX + i * krok,
                pocatekY + amplituda * math.sin( i * krokUhel  ) )
-
 ############################################################################
 
-n_uhelnik(7, 58)
+n_uhelnik(7)
+n_uhelnik(7, 50)
+n_uhelnik()
+n_uhelnik(krok=200, n=8)
+t.exitonclick()
+exit(0)
+
+
+
+
 t.goto(50, 50)
 sinus(100, 200)
 
-t.exitonclick()
-exit(0)
 
 for i in range(4):
     t.forward(100)
