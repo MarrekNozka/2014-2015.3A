@@ -22,6 +22,17 @@ def jeToProvocislo(cislo):
 for i in range(2, 1000):
     if jeToProvocislo(i):
         print(i, end=' ')
+print()
+
+# vypíšu prvních 1000 prvočísel
+i = 2
+pocet = 0
+while pocet < 1000:
+    if jeToProvocislo(i):
+        print(i, end=' ')
+        pocet = pocet + 1
+    i = i + 1
+print()
 
 
 ############################################################################
