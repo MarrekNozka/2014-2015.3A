@@ -26,18 +26,6 @@ def fib(n):
         return None
 
 
-def fibG(n):
-    yield 0
-    yield 1
-    x, y = 0, 1
-    i = 2
-    while i <= n:
-        yield x + y
-        x, y = y, x+y
-        i += 1
-    return
-
-
 def fibR(n):
     if n == 0:
         return 0
@@ -49,11 +37,26 @@ def fibR(n):
         return None
 
 
-n = 10
-print(fib(n))
-print(fibR(n))
+def fibG(n):
+    yield 0
+    yield 1
+    x, y = 0, 1
+    i = 2
+    while i <= n:
+        yield x + y
+        x, y = y, x+y
+        i += 1
+    return
+
+# n = 10
+# print(fib(n))
+# print(fibR(n))
 
 g = fibG(10)
+print(g.next())
+print(g.next())
+print(g.next())
+print(g.next())
 print(g.next())
 print(g.next())
 print(g.next())
@@ -63,3 +66,6 @@ print(g.next())
 print('-----------------')
 for i in fibG(10):
     print(i)
+
+gen = [x*x for x in range(10)]
+print (gen)
